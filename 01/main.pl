@@ -1,4 +1,4 @@
-:- include(read_input).
+:- include('../utilities/read_input.pl').
 
 elf(elf(Snacks)) --> snacks(Snacks), [''].
 elf(elf(Snacks)) --> snacks(Snacks).
