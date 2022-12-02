@@ -1,4 +1,5 @@
 :- include('../utilities/read_input.pl').
+:- initialization(main).
 
 elf(elf(Snacks)) --> snacks(Snacks), [''].
 elf(elf(Snacks)) --> snacks(Snacks).
@@ -28,4 +29,5 @@ main :-
 	%% part2
 	append([X, Y, Z], _, CarriedCaloriesDesc),
 	sum_list([X, Y, Z], SumTopThreeCalories),
-	write(SumTopThreeCalories), nl.
+	write(SumTopThreeCalories), nl,
+	halt.
