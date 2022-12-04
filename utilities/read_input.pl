@@ -21,3 +21,15 @@ readFile(FilePath, Lines) :-
   open(FilePath, read, Stream),
   readStream(Stream, Lines),
   close(Stream).
+
+readStreamChars(InStream, []) :-
+	at_end_of_stream(InStream), !.
+readStreamChars(InStream, [H | T]) :-
+  \+  at_end_of_stream(InStream),
+  get_char(InStream, H),
+  readStreamChars(InStream, T).
+
+readFileChars(FilePath, Chars) :-
+  open(FilePath, read, Stream),
+  readStreamChars(Stream, Chars),
+  close(Stream).
